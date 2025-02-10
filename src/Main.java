@@ -27,7 +27,10 @@ public class Main extends JFrame{
         JMenuItem createTicketMenuItem = new JMenuItem("Create New Ticket");
         ticketsMenu.add(createTicketMenuItem);
         createTicketMenuItem.addActionListener(e -> showCreateTicket());
-        ticketsMenu.add(new JMenuItem("View Open Tickets"));
+        JMenuItem ViewTickets =new JMenuItem("View Open Tickets");
+        ticketsMenu.add(ViewTickets);
+        ViewTickets.addActionListener(e->showTickets());
+
         ticketsMenu.add(new JMenuItem("Search Tickets"));
 
         // Customers Menu
@@ -83,6 +86,12 @@ public class Main extends JFrame{
     private void showCreateTicket() {
         getContentPane().removeAll();
         getContentPane().add(new CreateNewTicketPanel());
+        revalidate();
+        repaint();
+    }
+    private void showTickets() {
+        getContentPane().removeAll();
+        getContentPane().add(new TicketsMade());
         revalidate();
         repaint();
     }
